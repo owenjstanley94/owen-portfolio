@@ -1,17 +1,14 @@
-import React from "react";
+import React from 'react';
 
-class PortfolioDetail extends React.Component {
-    static getInitialProps({query}) {
-        return {query};
-    }
+const PortfolioDetail = ({query}) => {
+    const {id} = query;
+    return (
+        <h1>Im have the ID: {id}</h1>
+    )
+}
 
-    render() {
-        const id = this.props.query.id;
-        return (
-            <h1>Im page with ID: {id}</h1>
-        )
-    }
-
+PortfolioDetail.getInitialProps = ({query}) => {
+    return {query};
 }
 
 export default PortfolioDetail;
