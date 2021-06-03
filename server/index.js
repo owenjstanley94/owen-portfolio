@@ -52,12 +52,15 @@ app.prepare().then(() => {
     // Construct a schema, using GraphQL schema language
     const schema = buildSchema(`
         type Portfolio {
-            _id: ID!,
+            _id: ID,
             title: String,
-            content: String,
+            company: String,
+            companyWebsite: String,
+            location: String,
             jobTitle: String,
-            daysOfExperience: Int,
-            isCurrentlyEmployed: Boolean
+            description: String,
+            startDate: String,
+            endDate: String,
         }
     
         type Query {
