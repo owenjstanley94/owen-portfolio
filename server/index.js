@@ -11,7 +11,7 @@ const handle = app.getRequestHandler()
 const data = {
     portfolios: [
         {
-            _id: '32dsa8d9',
+            _id: 'id1',
             title: 'Job in USA',
             company: 'Burger King',
             companyWebsite: 'www.burgerking.com',
@@ -22,7 +22,7 @@ const data = {
             endDate: '01/01/2016',
         },
         {
-            _id: '3dg77sdfgadr',
+            _id: 'id2',
             title: 'Job in UK',
             company: 'Pizza Hut',
             companyWebsite: 'www.pizzahut.com',
@@ -33,7 +33,7 @@ const data = {
             endDate: '01/06/2019',
         },
         {
-            _id: '32dsa8d9',
+            _id: 'id3',
             title: 'Job in Barcelona',
             company: 'Little Cafe',
             companyWebsite: 'www.littlecafe.es',
@@ -80,7 +80,7 @@ app.prepare().then(() => {
             return portfolio;
         },
         portfolios: () => {
-            return data.portfolios
+            return data.portfolios;
         }
     };
 
