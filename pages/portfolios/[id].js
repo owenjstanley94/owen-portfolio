@@ -4,7 +4,7 @@ import axios from "axios";
 const fetchPortfolioById = (id) => {
     const query = `
     query Portfolio {
-            portfolio(id: "${id}" { 
+            portfolio(id: "${id}") { 
                 _id, 
                 title, 
                 company, 
@@ -28,9 +28,9 @@ const PortfolioDetail = ({portfolio}) => {
 
                 <div className="jumbotron">
                     <h1 className="display-3">{portfolio.title}</h1>
-                    <p className="lead">Some Job title</p>
+                    <p className="lead">{portfolio.jobTitle}</p>
                     <p>
-                        <a className="btn btn-lg btn-success" href="#" role="button">
+                        <a className="btn btn-lg btn-success" href={portfolio.companyWebsite} role="button">
                             See Company
                         </a>
                     </p>
@@ -39,10 +39,10 @@ const PortfolioDetail = ({portfolio}) => {
                 <div className="row marketing">
                     <div className="col-lg-6">
                         <h4 className="title">Location</h4>
-                        <p className="text">Some Location</p>
+                        <p className="text">{portfolio.location}</p>
 
                         <h4 className="title">Start Date</h4>
-                        <p className="text">Some Start Date</p>
+                        <p className="text">{portfolio.startDate}</p>
                     </div>
 
                     <div className="col-lg-6">
@@ -51,12 +51,12 @@ const PortfolioDetail = ({portfolio}) => {
                         <p className="text">44</p>
 
                         <h4 className="title">End Date</h4>
-                        <p className="text">Some End Date</p>
+                        <p className="text">{portfolio.endDate}</p>
                     </div>
                     <div className="col-md-12">
                         <hr/>
                         <h4 className="title">Description</h4>
-                        <p>Some Description lala la lalala lala lala la lalala lala lala la lalala lala...</p>
+                        <p>{portfolio.description}</p>
                     </div>
                 </div>
             </div>
