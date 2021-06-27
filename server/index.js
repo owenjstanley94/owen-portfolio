@@ -9,22 +9,26 @@ const app = next({dev})
 const handle = app.getRequestHandler()
 
 //resolvers
-const {portfolioResolvers } = require('./graphql/resolvers')
+const { portfolioResolvers } = require('./graphql/resolvers')
 
 //types
-const {portfolioTypes } = require('./graphql/types')
+const { portfolioTypes } = require('./graphql/types')
 
 app.prepare().then(() => {
     const server = express()
 
     // Construct a schema, using GraphQL schema language
     const schema = buildSchema(`
-        ${portfolioTypes}
+        ${ portfolioTypes }
         
         type Query {
             hello: String
             portfolio(id: ID): Portfolio
             portfolios: [Portfolio]
+            }
+            
+        type Mutation {
+            createPortfolio(input: PortfolioInput): Portfolio
             }
     `);
 
