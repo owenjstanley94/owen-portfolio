@@ -54,6 +54,17 @@ const data = {
             startDate: '02/03/2019',
             endDate: '01/01/2020',
         },
+        {
+            _id: 'id5',
+            title: 'Digitiser',
+            company: 'OBAS',
+            companyWebsite: 'www.obas.com',
+            location: 'Longridge, England',
+            jobTitle: 'Digitiser',
+            description: 'Digitised a variety of logos and branding for both print and embroidery. Operated industrial print and embroidery machinery when required, including basic maintenance.',
+            startDate: '02/03/2019',
+            endDate: '01/01/2020',
+        },
     ]
 }
 
