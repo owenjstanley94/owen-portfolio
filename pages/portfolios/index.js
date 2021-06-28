@@ -27,7 +27,7 @@ const graphCreatePortfolio = () => {
                 endDate
             }
         }`;
-    return axios.post('http://localhost:3000/graphql', { query })
+    return axios.post('http://localhost:3000/graphql', {query})
         .then(({data: graph}) => graph.data)
         .then(data => data.createPortfolio)
 };
@@ -57,9 +57,20 @@ const graphUpdatePortfolio = (id) => {
             }
         }`;
 
-    return axios.post('http://localhost:3000/graphql', { query })
+    return axios.post('http://localhost:3000/graphql', {query})
         .then(({data: graph}) => graph.data)
         .then(data => data.updatePortfolio)
+};
+
+const graphDeletePortfolio = (id) => {
+    const query = `
+    mutation DeletePortfolio {
+        deletePortfolio(id: "${id}")
+    }`;
+
+    return axios.post('http://localhost:3000/graphql', {query})
+        .then(({data: graph}) => graph.data)
+        .then(data => data.deletePortfolio)
 };
 
 const fetchPortfolios = () => {
@@ -99,6 +110,14 @@ const Portfolios = ({data}) => {
         setPortfolios(newPortfolios);
     }
 
+    const deletePortfolio = async (id) => {
+        const deletedId = await graphUpdatePortfolio(id);
+        const index = portfolios.findIndex(p => p._id === deletedId);
+        const newPortfolios = portfolios.slice();
+        newPortfolios.splice(index, 1);
+        setPortfolios(newPortfolios);
+    }
+
     return (
         <>
             <section className="section-title">
@@ -109,7 +128,8 @@ const Portfolios = ({data}) => {
                 </div>
                 <button
                     onClick={createPortfolio}
-                    className="btn btn-primary">Create Portfolio</button>
+                    className="btn btn-primary">Create Portfolio
+                </button>
             </section>
             <section className="pb-5">
                 <div className="row">
@@ -124,7 +144,12 @@ const Portfolios = ({data}) => {
                             </Link>
                             <button
                                 className='btn btn-warning'
-                                onClick={() => updatePortfolio(portfolio._id)}>Update Portfolio</button>
+                                onClick={() => updatePortfolio(portfolio._id)}>Update Portfolio
+                            </button>
+                            <button
+                                className='btn btn-danger'
+                                onClick={() => deletePortfolio(portfolio._id)}>Delete Portfolio
+                            </button>
                         </div>
                     )
                     }
@@ -136,7 +161,7 @@ const Portfolios = ({data}) => {
 
 Portfolios.getInitialProps = async () => {
     const portfolios = await fetchPortfolios();
-    return {data: { portfolios }};
+    return {data: {portfolios}};
 }
 
 
