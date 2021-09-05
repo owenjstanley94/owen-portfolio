@@ -81,9 +81,12 @@ const Portfolios = () => {
 
     useEffect(() => {
         getPortfolios();
-    })
-    if (data && !portfolios.length > 0 && portfolios.length === 0) { setPortfolios(data.portfolios)};
+    }, [])
 
+    if (data && data.portfolios.length > 0 && portfolios.length === 0) {
+        setPortfolios(data.portfolios);
+    }
+    
     if (loading) {return 'Loading...'};
 
     const createPortfolio = async () => {

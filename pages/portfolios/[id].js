@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {useLazyQuery} from '@apollo/client'
-import {GET_PORTFOLIO} from '@/apollo/queries'
+import {useLazyQuery} from '@apollo/client';
+import {GET_PORTFOLIO} from '@/apollo/queries';
 
 const PortfolioDetail = ({query}) => {
     const [portfolio, setPortfolio] = useState(null);
@@ -15,7 +15,6 @@ const PortfolioDetail = ({query}) => {
     if (data && !portfolio) {
         setPortfolio(data.portfolio)
     }
-
 
     return (
         <div className="portfolio-detail">
@@ -57,10 +56,10 @@ const PortfolioDetail = ({query}) => {
             </div>
         </div>
     )
-},
+}
 
 PortfolioDetail.getInitialProps = async ({query}) => {
     return {query};
-}
+},
 
 export default PortfolioDetail;
