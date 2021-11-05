@@ -27,7 +27,7 @@ function MyApp({Component, pageProps}) {
                 {isHomePage() &&
                 <footer id="sticky-footer" className="py-4 bg-black text-white-50 py-3">
                     <div className="container text-center">
-                        <small>Copyright &copy; Your Website</small>
+                        <small>Copyright &copy; Owen Stanley</small>
                     </div>
                 </footer>}
                 {/* FOOTER ENDS */}
