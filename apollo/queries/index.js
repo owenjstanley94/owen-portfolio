@@ -34,3 +34,28 @@ export const GET_PORTFOLIOS = gql`
         }
     }
 `;
+
+
+export const CREATE_PORTFOLIO = gql`
+        mutation CreatePortfolio {
+            createPortfolio(input: {
+            title: "New Job"
+            company: "New compnay"
+            companyWebsite: "New Webiste"
+            location: "new place" 
+            jobTitle: "new title"
+            description: "blah balh balh"
+            startDate: "startdate"
+            endDate: "enddate"
+            }) {
+                _id, 
+                title, 
+                company, 
+                companyWebsite,
+                location, 
+                jobTitle, 
+                description,
+                startDate
+                endDate
+            }
+        }`;
