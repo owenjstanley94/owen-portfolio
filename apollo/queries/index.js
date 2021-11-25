@@ -17,7 +17,7 @@ export const GET_PORTFOLIO = gql`
             endDate
         }
     }
-    `;
+`;
 
 export const GET_PORTFOLIOS = gql`
     query Portfolios {
